@@ -13,7 +13,8 @@
     "indentStyle": "tab"
   },
   "linter": {
-    "enabled": true
+    "enabled": true,
+    "includes": ["**", "!node_modules/**", "!dist/**"]
   },
   "javascript": {
     "formatter": {
