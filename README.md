@@ -31,6 +31,16 @@ https://bun.sh/docs/cli/add
 
 テストは `bun test` と bun 専用のテストコマンドを実行する必要がある（package.json に test を用意すると、おそらく通常のタスク実行として動いてしまう）
 
+### bun test の設定
+
+2023 年頃の記事だと `toBeInTheDocument` などのメソッドが使えないとか見かけたが、今は普通にセットアップ方法が公式に載っていた。
+
+[Using Testing Library with Bun](https://bun.sh/guides/test/testing-library)
+
+ただエラーした際の挙動が変になっていたので、もうちょっと待った方が良いかも。
+
+https://github.com/oven-sh/bun/issues/18500
+
 ### biome の設定
 
 以下の記事を参考に設定。VSCode の設定で `"quickfix.biome": true` とすると安全ではない unsafe fix で実行されてエグいので、 `"source.fixAll.biome": "explicit"` で安全な fix のみ変換されるようにした。
