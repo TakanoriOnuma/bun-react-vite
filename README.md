@@ -12,6 +12,12 @@ brew でインストールした場合の activate は多分こっち？
 
 `echo 'eval "$(mise activate bash)"' >> ~/.bashrc`
 
+#### GitHub Actions 上でのバージョン指定
+
+GitHub Actions でも version-file を指定できるが、それは`.tool-versions`のみだった。せっかく mise.toml を用意したが、そっちは使わないかもしれない。。
+
+https://github.com/oven-sh/setup-bun/tree/v2/?tab=readme-ov-file#inputs
+
 ### bun の使い方
 
 大体 npm と使い方が一緒で、npm → bun に変えるだけで良さそう
