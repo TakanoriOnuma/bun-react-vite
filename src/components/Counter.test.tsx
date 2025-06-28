@@ -7,13 +7,13 @@ import { Counter } from "./Counter";
 const user = userEvent.setup();
 
 describe("Counter", () => {
-	test("カウントアップするか", async () => {
-		render(<Counter />);
+  test("カウントアップするか", async () => {
+    render(<Counter />);
 
-		const button = screen.getByRole("button", { name: /count is 0/i });
-		expect(button).toBeInTheDocument();
+    const button = screen.getByRole("button", { name: /count is 0/i });
+    expect(button).toBeInTheDocument();
 
-		await user.click(button);
-		expect(button).toHaveTextContent("count is 1");
-	});
+    await user.click(button);
+    expect(button).toHaveTextContent("count is 1");
+  });
 });
