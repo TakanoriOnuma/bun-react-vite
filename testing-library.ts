@@ -4,11 +4,11 @@ import { cleanup } from "@testing-library/react";
 import chalk from "chalk";
 
 function ensureExpectedColor(fn: any) {
-	return function (...args: any[]) {
-		this.utils.EXPECTED_COLOR = chalk.green;
-		this.utils.RECEIVED_COLOR = chalk.red;
-		return fn.apply(this, args);
-	};
+  return function (...args: any[]) {
+    this.utils.EXPECTED_COLOR = chalk.green;
+    this.utils.RECEIVED_COLOR = chalk.red;
+    return fn.apply(this, args);
+  };
 }
 
 // 「context.utils.RECEIVED_COLOR is not a function.」というエラーが出たのでパッチを当てる。
@@ -18,16 +18,16 @@ function ensureExpectedColor(fn: any) {
 // @see https://github.com/oven-sh/bun/issues/18500#issuecomment-2755227330
 // apply the color overrides to all matcher functions within jest-dom matchers
 function patchObjectMethods<T extends object>(obj: T) {
-	return Object.fromEntries(
-		Object.entries(obj).map(([key, value]) => [
-			key,
-			typeof value === "function" ? ensureExpectedColor(value) : value,
-		]),
-	);
+  return Object.fromEntries(
+    Object.entries(obj).map(([key, value]) => [
+      key,
+      typeof value === "function" ? ensureExpectedColor(value) : value,
+    ]),
+  );
 }
 
 expect.extend(patchObjectMethods(matchers));
 
 afterEach(() => {
-	cleanup();
+  cleanup();
 });
