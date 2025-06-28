@@ -23,3 +23,20 @@ jobs:
 
       - name: Lint
         run: bun run lint
+
+  format_check:
+    runs-on: ubuntu-22.04
+    timeout-minutes: 10
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version-file: .tool-versions
+
+      - name: Install
+        run: bun install
+
+      - name: Format Check
+        run: bun run format:check
