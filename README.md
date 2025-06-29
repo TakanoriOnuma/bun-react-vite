@@ -48,7 +48,7 @@ https://github.com/oven-sh/bun/issues/18500
 https://github.com/oven-sh/bun/issues/4824#issuecomment-2855010428
 
 まず bun は mise でローカルにだけ実行パスがある状態だと動かず、`bunTestExplorer.pathToBun`に`mise which bun`で取得した絶対パスを指定する必要がある。できればこのプロジェクトで使用できる bun を自動で読み取って欲しい・・・。
-また、pass する場合は jest と同じようにファイル上に実行ボタンがついていて良かったのだが、fail するコードが入るとなぜか実行できなくなった。追加の queries も型推論できなくなっていたりしたのでその辺が不安定だからという理由もありそう。
+また、pass する場合は jest と同じようにファイル上に実行ボタンがついていて良かったのだが、fail するコードが入るとなぜか実行できなくなった。
 
 ### biome の設定
 
