@@ -66,6 +66,8 @@ https://bun.sh/docs/cli/test
 
 ただしその運用をすると VSCode でどちらのテストツールを出すべきか判断に迷いそうなので、やはり jest や vitest 側が拡張子を変える方が確実そうではある。
 
+ちなみに`*_test.tsx`がそもそもサポートされているので、そっちの表記にするのはアリかと思ったが、なぜか VSCode 拡張の方が反応してくれなかった orz
+
 [bun test が速いので vitest から置き換えたらめちゃ高速化された](https://zenn.dev/studio/articles/c5207260e90e8c)
 
 ### biome の設定
