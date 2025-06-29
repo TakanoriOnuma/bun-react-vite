@@ -4,6 +4,21 @@ import { userEvent } from "@testing-library/user-event";
 
 import { Counter } from "./Counter";
 
+// 流石にjest.mockはbunではサポートされていなかった
+// jest.mock("./useCounter", () => {
+//   const originalModule = jest.requireActual("./useCounter");
+
+//   return {
+//     ...originalModule,
+//     useCounter: () => ({
+//       count: 0,
+//       increment: jest.fn(() => {
+//         // Mock implementation to simulate incrementing the count
+//       }),
+//     }),
+//   };
+// });
+
 const user = userEvent.setup();
 
 describe("Counter", () => {
