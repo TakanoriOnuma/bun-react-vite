@@ -41,6 +41,15 @@ https://bun.sh/docs/cli/add
 
 https://github.com/oven-sh/bun/issues/18500
 
+#### VSCode 上での実行
+
+現状だとここで会話されている VSCode 拡張を入れると動きそうだが、まだ出たばかりでかなり不安定だった。
+
+https://github.com/oven-sh/bun/issues/4824#issuecomment-2855010428
+
+まず bun は mise でローカルにだけ実行パスがある状態だと動かず、`bunTestExplorer.pathToBun`に`mise which bun`で取得した絶対パスを指定する必要がある。できればこのプロジェクトで使用できる bun を自動で読み取って欲しい・・・。
+また、pass する場合は jest と同じようにファイル上に実行ボタンがついていて良かったのだが、fail するコードが入るとなぜか実行できなくなった。追加の queries も型推論できなくなっていたりしたのでその辺が不安定だからという理由もありそう。
+
 ### biome の設定
 
 以下の記事を参考に設定。VSCode の設定で `"quickfix.biome": true` とすると安全ではない unsafe fix で実行されてエグいので、 `"source.fixAll.biome": "explicit"` で安全な fix のみ変換されるようにした。
