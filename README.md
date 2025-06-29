@@ -50,6 +50,20 @@ https://github.com/oven-sh/bun/issues/4824#issuecomment-2855010428
 まず bun は mise でローカルにだけ実行パスがある状態だと動かず、`bunTestExplorer.pathToBun`に`mise which bun`で取得した絶対パスを指定する必要がある。できればこのプロジェクトで使用できる bun を自動で読み取って欲しい・・・。
 また、pass する場合は jest と同じようにファイル上に実行ボタンがついていて良かったのだが、fail するコードが入るとなぜか実行できなくなった。
 
+#### bun と他のテストツールとの棲み分け
+
+bun はテストファイルの拡張子を変えることができないので、基本的には Vitest 側を`.vitest.(ts|tsx)`とするのが楽だが、bun のテストファイルを`.bun.test.(ts|tsx)`とすると以下のようにフィルタすることで bun のテストファイルのみ実行することはできるかも。
+
+```sh
+bun test **/*.bun.test.(ts|tsx)
+```
+
+https://bun.sh/docs/cli/test
+
+ただしその運用をすると VSCode でどちらのテストツールを出すべきか判断に迷いそうなので、やはり jest や vitest 側が拡張子を変える方が確実そうではある。
+
+[bun test が速いので vitest から置き換えたらめちゃ高速化された](https://zenn.dev/studio/articles/c5207260e90e8c)
+
 ### biome の設定
 
 以下の記事を参考に設定。VSCode の設定で `"quickfix.biome": true` とすると安全ではない unsafe fix で実行されてエグいので、 `"source.fixAll.biome": "explicit"` で安全な fix のみ変換されるようにした。
