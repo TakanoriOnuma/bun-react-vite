@@ -50,6 +50,10 @@ https://github.com/oven-sh/bun/issues/4824#issuecomment-2855010428
 まず bun は mise でローカルにだけ実行パスがある状態だと動かず、`bunTestExplorer.pathToBun`に`mise which bun`で取得した絶対パスを指定する必要がある。できればこのプロジェクトで使用できる bun を自動で読み取って欲しい・・・。
 また、pass する場合は jest と同じようにファイル上に実行ボタンがついていて良かったのだが、fail するコードが入るとなぜか実行できなくなった。
 
+こっち使えばテスト実行はできた。ただテスト用のパネルが出るのではなく、単純にターミナルに`bun test`を実行する感じっぽい。こっちだといい感じに bun の実行パスを拾えていた。
+
+[Bun for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=oven.bun-vscode)
+
 #### bun と他のテストツールとの棲み分け
 
 bun はテストファイルの拡張子を変えることができないので、基本的には Vitest 側を`.vitest.(ts|tsx)`とするのが楽だが、bun のテストファイルを`.bun.test.(ts|tsx)`とすると以下のようにフィルタすることで bun のテストファイルのみ実行することはできるかも。
