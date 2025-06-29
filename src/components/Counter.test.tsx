@@ -1,4 +1,4 @@
-import { describe, expect, test } from "@jest/globals";
+import { describe, expect, jest, test } from "@jest/globals";
 import { render, screen } from "@testing-library/react";
 import { userEvent } from "@testing-library/user-event";
 
@@ -8,12 +8,17 @@ const user = userEvent.setup();
 
 describe("Counter", () => {
   test("カウントアップするか", async () => {
-    render(<Counter />);
+    const onClick = jest.fn();
+
+    render(<Counter onClick={onClick} />);
+    expect(onClick).toHaveBeenCalledTimes(0);
 
     const button = screen.getByRole("button", { name: /count is 0/i });
     expect(button).toBeInTheDocument();
 
     await user.click(button);
     expect(button).toHaveTextContent("count is 1");
+
+    expect(onClick).toHaveBeenCalledTimes(1);
   });
 });
