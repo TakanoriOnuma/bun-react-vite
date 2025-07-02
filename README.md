@@ -81,3 +81,5 @@ lint の除外ファイルは指定できなそうな感じだったので、一
 ファイルを除外する場合は `linter.includes` のところで`!node_modules/**`のように除外ケースとして指定するといけた。
 
 https://biomejs.dev/reference/configuration/#linterincludes
+
+biome で lint するとエラーにはなるが、ESLint のように GitHub の PR コード上にエラーコメントで表示されないのは惜しかった。むしろ ESLint が凄い？
