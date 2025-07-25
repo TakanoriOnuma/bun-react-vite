@@ -1,14 +1,20 @@
 import type { FC } from "react";
-import { useState } from "react";
 
-export const Counter: FC = () => {
-  const [count, setCount] = useState(0);
+import { useCounter } from "./useCounter";
+
+export type CounterProps = {
+  onClick?: () => void;
+};
+
+export const Counter: FC<CounterProps> = ({ onClick }) => {
+  const { count, increment } = useCounter();
 
   return (
     <button
       type="button"
       onClick={() => {
-        setCount((count) => count + 1);
+        increment();
+        onClick?.();
       }}
     >
       count is {count}

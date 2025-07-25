@@ -16,5 +16,8 @@
   "editor.codeActionsOnSave": {
     "source.fixAll.biome": "explicit",
     "source.organizeImports.biome": "explicit"
-  }
+  },
+
+  // Jestの設定
+  "jest.runMode": "on-demand"
 }
